@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{pgfpages}
+
+\geometry{
+  paperwidth=5.5in,
+  paperheight=8.5in,
+  top=0.5in,
+  bottom=0.5in,
+  left=0.5in,
+  right=0.5in
+}
+
+\pgfpagesuselayout{2 on 1}[letterpaper,landscape,border shrink=5mm]
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{My Songbook}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\songtitle}[1]{%
+  \section*{#1}
+  \addcontentsline{toc}{section}{#1}
+  \vspace{0.3cm}
+}
+
+\begin{document}
+
+\title{Pack 25 Songs and Skits}
+\author{Compiled by Eddie Waldmire}
+\date{2026}
+\maketitle
+\tableofcontents
+\newpage
+
+% Include songs from folder
+\input{songs/amazing_grace.tex}
+\input{songs/found_a_peanut.tex}
+\input{songs/row_row_row.tex}
+\input{songs/quartermaster.tex}
+% ...add more as needed
+
+\end{document}

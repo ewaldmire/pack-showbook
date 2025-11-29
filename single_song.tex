@@ -1,0 +1,24 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+\geometry{letterpaper, top=1in, bottom=1in, left=1in, right=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+
+% Define \songtitle if not defined
+\providecommand{\songtitle}[1]{\section*{#1}}
+
+\ifdefined\songfile\else
+  \def\songfile{}
+\fi
+
+\begin{document}
+
+\input{\songfile}
+
+\end{document}
+
