@@ -4,7 +4,6 @@
 \usepackage{lmodern}
 \usepackage{fancyhdr}
 \usepackage{geometry}
-%\usepackage{pgfpages}
 
 % Standard 8.5 x 11 page
 \geometry{
@@ -38,10 +37,25 @@
 
 \begin{document}
 
-\title{Pack 25 Songs and Skits}
-\author{Compiled by Eddie Waldmire}
-\date{2026}
-\maketitle
+% =========================
+% FRONT PAGE
+% =========================
+\begin{titlepage}
+  \thispagestyle{empty} % no header/footer
+  \centering
+  \vspace*{3cm}
+  {\Huge\bfseries Pack 25 Songs and Skits\par}
+  \vspace{2cm}
+  {\Large Compiled by Eddie Waldmire\par}
+  \vfill
+  {\large 2026\par}
+\end{titlepage}
+
+\newpage
+
+% =========================
+% TABLE OF CONTENTS
+% =========================
 \tableofcontents
 \newpage
 
@@ -50,7 +64,7 @@
 % =========================
 \section*{Songs}
 \addcontentsline{toc}{section}{Songs}
-\markboth{Songs}{Songs}  % Set initial header to Songs
+\markboth{Songs}{Songs}
 
 \input{songs/amazing_grace.tex}
 \input{songs/found_a_peanut.tex}
@@ -59,24 +73,26 @@
 \input{songs/boa_constrictor.tex}
 \input{songs/i_met_a_bear.tex}
 \input{songs/wigalo.tex}
-% Moose Song
-% Penguin Song
-% Scout Vespers
 
 % =========================
 % SKITS
 % =========================
 \section*{Skits}
 \addcontentsline{toc}{section}{Skits}
-\markboth{Skits}{Skits}  % Switch header to Skits
+\markboth{Skits}{Skits}
 
 \input{skits/invisible_bench.tex}
 
-% Add more skits here
-%\skittitle{Penguin Skit}
-%\input{skits/penguin.tex}
-
-%\skittitle{Scout Vespers}
-%\input{skits/scout_vespers.tex}
+% =========================
+% BACK PAGE
+% =========================
+\newpage
+\thispagestyle{empty} % no header/footer
+\begin{center}
+  \vspace*{5cm}
+  {\Large Thank you for enjoying Pack 25 Songs and Skits!\par}
+  \vspace{2cm}
+  {\large Compiled by Eddie Waldmire, 2026\par}
+\end{center}
 
 \end{document}
