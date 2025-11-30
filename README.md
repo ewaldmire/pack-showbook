@@ -2,6 +2,12 @@
 
 This is a Cub Scout Songbook I'm creating 
 
+## Dependencies
+I'm using Red Hat Enterprise Linux 9, and these packages are needed to compile:
+```
+sudo dnf install texlive-latex texlive-collection-fontsrecommended texlive-fancyhdr texlive-epstopdf-pkg -y
+```
+
 ## Usage:
 
 1. To Generate the entire songbook as a pdf:
