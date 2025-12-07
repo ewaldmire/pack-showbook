@@ -1,0 +1,137 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
+
+% HALF of a Standard 8.5 x 11 page
+\geometry{
+  paperwidth=5.5in,
+  paperheight=8.5in,
+  top=1in,
+  bottom=1in,
+  left=0.6in,
+  right=0.6in
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyhead[L]{\leftmark}  % Left header shows current section
+%\fancyfoot[C]{\thepage}
+\fancyhead[L]{\small\leftmark}  % Left header smaller
+\fancyfoot[C]{\small\thepage}   % Page number smaller
+
+% Individual song titles
+\newcommand{\songtitle}[1]{%
+  \clearpage %to put each song on it's own page
+  \subsection*{#1}
+  \addcontentsline{toc}{subsection}{#1}
+%  \vspace{.01in}
+  \markboth{Songs}{Songs}
+}
+
+% Individual skit titles
+\newcommand{\skittitle}[1]{%
+  \clearpage %to put each skit on it's own page
+  \subsection*{#1}
+  \addcontentsline{toc}{subsection}{#1}
+%  \vspace{0.01in}
+  \markboth{Skits}{Skits}
+}
+
+\begin{document}
+
+% =========================
+% FRONT COVER
+% =========================
+\begin{titlepage}
+  \thispagestyle{empty} % no header/footer
+  \centering
+  \vspace*{1.25in}
+  {\Large\bfseries Pack 25 Songs and Skits\par}
+  \vspace{.5in}
+  \includegraphics[width=0.6\textwidth]{images/CubScoutsLogo-FullColor-CSBC.jpg}
+  \vspace{.5in}
+
+  {\large Compiled by Eddie Waldmire\par}
+  \vfill
+  {\large 2026\par}
+\end{titlepage}
+
+\newpage
+
+% =========================
+% BLANK PAGE (back of Front Cover)
+% =========================
+\thispagestyle{empty} % no header/footer
+\null
+\newpage
+
+% =========================
+% TABLE OF CONTENTS
+% =========================
+\tableofcontents
+\newpage
+
+% =========================
+% SONGS
+% =========================
+\clearpage
+%\setlength{\headheight}{6pt}  % ensures enough space
+\thispagestyle{plain}   % just page numbers
+\vspace*{\fill}         % vertical centering
+\begin{center}
+  {\Huge\bfseries Songs\par}  % big centered title
+\end{center}
+\vspace*{\fill}
+\addcontentsline{toc}{section}{Songs}  % still adds to TOC
+\markboth{Songs}{Songs}  % Set initial header to Songs
+\clearpage
+
+\input{songs/amazing_grace.tex}
+\input{songs/found_a_peanut.tex}
+\input{songs/quartermaster.tex}
+\input{songs/boa_constrictor.tex}
+\input{songs/i_met_a_bear.tex}
+\input{songs/wigalo.tex}
+\input{songs/moose.tex}
+\input{songs/penguin.tex}
+\input{songs/twelve_days_of_scout_camp.tex}
+\input{songs/vespers.tex}
+
+% =========================
+% SKITS
+% =========================
+\clearpage
+\thispagestyle{plain}   % just page numbers
+\vspace*{\fill}         % vertical centering
+\begin{center}
+  {\Huge\bfseries Skits\par}  % big centered title
+\end{center}
+\vspace*{\fill}
+\addcontentsline{toc}{section}{Skits}  % still adds to TOC
+\markboth{Skits}{Skits}  % Switch header Skits
+\clearpage
+
+%\section*{Skits}
+%\addcontentsline{toc}{section}{Skits}
+%\markboth{Skits}{Skits}  % Switch header to Skits
+
+\input{skits/invisible_bench.tex}
+\input{skits/sand_castle.tex}
+
+% =========================
+% BACK PAGE
+% =========================
+\newpage
+\thispagestyle{empty} % no header/footer
+\begin{center}
+  \vspace*{5cm}
+  {\Large Dedicated to every Scout that grows up singing silly songs and wants to teach younger Scouts silly songs\par}
+  \vspace{2cm}
+  {\large Compiled by Eddie Waldmire, who used to be an Eagle...\par}
+\end{center}
+
+\end{document}
