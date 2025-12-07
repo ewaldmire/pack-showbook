@@ -1,0 +1,36 @@
+name: Build Songbook PDF on CentOS Stream 9
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest   # GitHub Actions still runs on Ubuntu host, but we'll use CentOS Docker
+
+    steps:
+      # Step 1: Checkout the repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Run a CentOS Stream 9 container
+      - name: Build PDF in CentOS Stream 9
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace centos:stream9 /bin/bash -c "
+            dnf -y update && \
+            dnf -y install texlive-latex texlive-collection-fontsrecommended texlive-fancyhdr texlive-epstopdf-pkg && \
+            cd path/to/latex/files && \
+            pdflatex songbook_ebook.tex && \
+            pdflatex songbook_ebook.tex && \
+            pdfbook main.pdf
+          "
+
+      # Step 3: Upload the PDF
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: scout-songbook-pdf
+          path: path/to/latex/files/*.pdf
+
