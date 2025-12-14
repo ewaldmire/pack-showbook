@@ -130,7 +130,7 @@ jobs:
           curl --fail -sS -X POST \
             -H "Authorization: Bearer ${GITHUB_TOKEN}" \
             -H "Content-Type: application/pdf" \
-            --data-binary @"${SECOND_ASSET_PATH}" \
-            "${upload_url}?name=$(basename "$SECOND_ASSET_PATH")"
+            --data-binary @"${THIRD_ASSET_PATH}" \
+            "${upload_url}?name=$(basename "$THIRD_ASSET_PATH")"
 
           echo "Upload complete. Release tag: ${TAG}"
