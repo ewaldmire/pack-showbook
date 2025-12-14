@@ -22,8 +22,8 @@ jobs:
             dnf -y update && \
             dnf -y install texlive-latex texlive-collection-fontsrecommended texlive-fancyhdr texlive-epstopdf-pkg && \
             cd /workspace && \
-            pdflatex songbook_ebook.tex && \
-            pdflatex songbook_ebook.tex && \
+            pdflatex pack-showbook_letter_full_page.tex && \
+            pdflatex pack-showbook_letter_full_page.tex && \
             pdflatex songbook_halfpage.tex && \
             pdflatex songbook_halfpage.tex && \
             dnf -y install texlive-pdfpages texlive-pdflscape && \
@@ -55,7 +55,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           TAG: ${{ steps.tag.outputs.tag }}
-          ASSET_PATH: ${{ github.workspace }}/songbook_ebook.pdf
+          ASSET_PATH: ${{ github.workspace }}/pack-showbook_letter_full_page.pdf
         run: |
           set -euo pipefail
 
