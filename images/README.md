@@ -6,7 +6,7 @@ Smaller image used in the book was converted with GraphicsMagick with the comman
 
 The QR code was generated with:
 
-`qrencode -o qr_full.png -s 10 "https://github.com/ewaldmire/scout-songbook/releases/latest/download/pack-showbook_letter_full_page.pdf"`
+`qrencode -o qr_full.png -s 10 "https://github.com/ewaldmire/scout-songbook/releases/latest/download/pack-showbook_letter_full.pdf"`
 
 After running:
 

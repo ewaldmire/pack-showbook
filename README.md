@@ -1,6 +1,6 @@
-# Scout Songbook
+# Scout Pack Showbook: Songs, Skits, and Fun!
 
-This is a Cub Scout Songbook I'm creating 
+This is a Cub Scout Song & Skit Book I'm creating.
 
 ## Dependencies
 I'm using Red Hat Enterprise Linux 9, and these packages are needed to compile:
@@ -11,10 +11,10 @@ sudo dnf install texlive-latex texlive-collection-fontsrecommended texlive-fancy
 
 ## Usage:
 
-1. To Generate the entire songbook as a pdf:
+1. To Generate the entire Showbook as a pdf:
 ```
-pdflatex pack-showbook_letter_full_page.tex #1st time to generate initial book without ToC.
-pdflatex pack-showbook_letter_full_page.tex #2nd time to generate ToC.
+pdflatex pack-showbook_letter_full.tex #1st time to generate initial book without ToC.
+pdflatex pack-showbook_letter_full.tex #2nd time to generate ToC.
 ```
 
 2. To Generate a single page sheet (useful for leading the group in "repeat after me" without books)
@@ -41,12 +41,12 @@ You'll also need to run the script from this repo called `pdfbook_deps.sh` to ad
 Then, you can run this command to generate a printable booklet format:
 
 ```
-pdfbook --short-edge ~/path/to/pack-showbook_letter_full_page.pdf  --outfile ~/path/to/new/file/songbook_booklet.pdf
+pdfbook --short-edge ~/path/to/pack-showbook_letter_half.pdf  --outfile ~/path/to/new/file/pack-showbook_letter_booklet.pdf
 
 ```
 
 ## Lazy copy-paste for me to build all the things:
 ```
 export PATH=$HOME/pdfjam-4.2/bin:$PATH
-pdflatex pack-showbook_letter_full_page.tex && pdflatex pack-showbook_letter_full_page.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/scout-songbook/pack-showbook_letter_full_page.pdf  --outfile ~/code/scout-songbook/songbook_booklet.pdf && pdflatex songbook_halfpage.tex && pdflatex songbook_halfpage.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/scout-songbook/songbook_halfpage.pdf  --outfile ~/code/scout-songbook/songbook_half_booklet.pdf
+pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_half.tex && pdflatex pack-showbook_letter_half.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/scout-songbook/pack-showbook_letter_half.pdf  --outfile ~/code/scout-songbook/pack-showbook_letter_booklet.pdf
 ```

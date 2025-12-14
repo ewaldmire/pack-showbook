@@ -22,10 +22,10 @@ jobs:
             dnf -y update && \
             dnf -y install texlive-latex texlive-collection-fontsrecommended texlive-fancyhdr texlive-epstopdf-pkg && \
             cd /workspace && \
-            pdflatex pack-showbook_letter_full_page.tex && \
-            pdflatex pack-showbook_letter_full_page.tex && \
-            pdflatex songbook_halfpage.tex && \
-            pdflatex songbook_halfpage.tex && \
+            pdflatex pack-showbook_letter_full.tex && \
+            pdflatex pack-showbook_letter_full.tex && \
+            pdflatex pack-showbook_letter_half.tex && \
+            pdflatex pack-showbook_letter_half.tex && \
             dnf -y install texlive-pdfpages texlive-pdflscape && \
             mkdir -p ~/texmf/tex/latex/everyshi && \
             curl -L -o ~/texmf/tex/latex/everyshi/everyshi.sty https://mirrors.ctan.org/macros/latex/contrib/everyshi/everyshi.sty && \
@@ -38,7 +38,7 @@ jobs:
             cd ~/code/ && \
             git clone https://github.com/pdfjam/pdfjam-extras && \
             export PATH=~/pdfjam-4.2/bin:$PATH && \
-            ~/code/pdfjam-extras/bin/pdfbook --short-edge /workspace/songbook_halfpage.pdf  --outfile /workspace/songbook_half_booklet.pdf
+            ~/code/pdfjam-extras/bin/pdfbook --short-edge /workspace/pack-showbook_letter_half.pdf  --outfile /workspace/pack-showbook_letter_booklet.pdf
           "
 
       - name: Install jq (parse JSON)
@@ -55,7 +55,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           TAG: ${{ steps.tag.outputs.tag }}
-          ASSET_PATH: ${{ github.workspace }}/pack-showbook_letter_full_page.pdf
+          ASSET_PATH: ${{ github.workspace }}/pack-showbook_letter_full.pdf
         run: |
           set -euo pipefail
 
@@ -108,7 +108,7 @@ jobs:
             "${upload_url}?name=${filename}"
 
           # Upload second PDF
-          SECOND_ASSET_PATH="${GITHUB_WORKSPACE}/songbook_halfpage.pdf"
+          SECOND_ASSET_PATH="${GITHUB_WORKSPACE}/pack-showbook_letter_half.pdf"
           if [ ! -f "$SECOND_ASSET_PATH" ]; then
             echo "ERROR: asset not found at $SECOND_ASSET_PATH"
             exit 1
@@ -121,7 +121,7 @@ jobs:
             "${upload_url}?name=$(basename "$SECOND_ASSET_PATH")"
 
           # Upload third PDF
-          THIRD_ASSET_PATH="${GITHUB_WORKSPACE}/songbook_half_booklet.pdf"
+          THIRD_ASSET_PATH="${GITHUB_WORKSPACE}/pack-showbook_letter_booklet.pdf"
           if [ ! -f "$THIRD_ASSET_PATH" ]; then
             echo "ERROR: asset not found at $THIRD_ASSET_PATH"
             exit 1
