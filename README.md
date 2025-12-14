@@ -48,5 +48,5 @@ pdfbook --short-edge ~/path/to/songbook_ebook.pdf  --outfile ~/path/to/new/file/
 ## Lazy copy-paste for me to build all the things:
 ```
 export PATH=$HOME/pdfjam-4.2/bin:$PATH
-pdflatex songbook_ebook.tex && pdflatex songbook_ebook.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/scout-songbook/songbook_ebook.pdf  --outfile ~/code/scout-songbook/songbook_booklet.pdf
+pdflatex songbook_ebook.tex && pdflatex songbook_ebook.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/scout-songbook/songbook_ebook.pdf  --outfile ~/code/scout-songbook/songbook_booklet.pdf && pdflatex songbook_halfpage.tex && pdflatex songbook_halfpage.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/scout-songbook/songbook_halfpage.pdf  --outfile ~/code/scout-songbook/songbook_half_booklet.pdf
 ```
