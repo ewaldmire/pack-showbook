@@ -48,5 +48,5 @@ pdfbook --short-edge ~/path/to/pack-showbook_letter_half.pdf  --outfile ~/path/t
 ## Lazy copy-paste for me to build all the things:
 ```
 export PATH=$HOME/pdfjam-4.2/bin:$PATH
-pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_half.tex && pdflatex pack-showbook_letter_half.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/scout-songbook/pack-showbook_letter_half.pdf  --outfile ~/code/scout-songbook/pack-showbook_letter_booklet.pdf
+pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_half.tex && pdflatex pack-showbook_letter_half.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/pack-showbook/pack-showbook_letter_half.pdf  --outfile ~/code/pack-showbook/pack-showbook_letter_booklet.pdf
 ```
