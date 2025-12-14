@@ -23,7 +23,9 @@ jobs:
             dnf -y install texlive-latex texlive-collection-fontsrecommended texlive-fancyhdr texlive-epstopdf-pkg && \
             cd /workspace && \
             pdflatex songbook_ebook.tex && \
-            pdflatex songbook_ebook.tex
+            pdflatex songbook_ebook.tex && \
+            pdflatex songbook_halfpage.tex && \
+            pdflatex songbook_halfpage.tex
           "
 
       - name: Install jq (parse JSON)
@@ -85,10 +87,24 @@ jobs:
           filename=$(basename "$ASSET_PATH")
           echo "Uploading $filename to release..."
 
+          # Upload first PDF
           curl --fail -sS -X POST \
             -H "Authorization: Bearer ${GITHUB_TOKEN}" \
             -H "Content-Type: application/pdf" \
             --data-binary @"${ASSET_PATH}" \
             "${upload_url}?name=${filename}"
+
+          # Upload second PDF
+          SECOND_ASSET_PATH="${GITHUB_WORKSPACE}/songbook_halfpage.pdf"
+          if [ ! -f "$SECOND_ASSET_PATH" ]; then
+            echo "ERROR: asset not found at $SECOND_ASSET_PATH"
+            exit 1
+          fi
+
+          curl --fail -sS -X POST \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Content-Type: application/pdf" \
+            --data-binary @"${SECOND_ASSET_PATH}" \
+            "${upload_url}?name=$(basename "$SECOND_ASSET_PATH")"
 
           echo "Upload complete. Release tag: ${TAG}"
