@@ -37,7 +37,7 @@ jobs:
             mkdir -p ~/code/ && \
             cd ~/code/ && \
             git clone https://github.com/pdfjam/pdfjam-extras && \
-            export PATH=$HOME/pdfjam-4.2/bin:$PATH && \
+            export PATH=~/pdfjam-4.2/bin:$PATH && \
             ~/code/pdfjam-extras/bin/pdfbook --short-edge /workspace/songbook_halfpage.pdf  --outfile /workspace/songbook_half_booklet.pdf
           "
 
