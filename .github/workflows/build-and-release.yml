@@ -107,18 +107,18 @@ jobs:
             --data-binary @"${ASSET_PATH}" \
             "${upload_url}?name=${filename}"
 
-          # Upload second PDF
-          SECOND_ASSET_PATH="${GITHUB_WORKSPACE}/pack-showbook_letter_half.pdf"
-          if [ ! -f "$SECOND_ASSET_PATH" ]; then
-            echo "ERROR: asset not found at $SECOND_ASSET_PATH"
-            exit 1
-          fi
-
-          curl --fail -sS -X POST \
-            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-            -H "Content-Type: application/pdf" \
-            --data-binary @"${SECOND_ASSET_PATH}" \
-            "${upload_url}?name=$(basename "$SECOND_ASSET_PATH")"
+#          # Upload second PDF
+#          SECOND_ASSET_PATH="${GITHUB_WORKSPACE}/pack-showbook_letter_half.pdf"
+#          if [ ! -f "$SECOND_ASSET_PATH" ]; then
+#            echo "ERROR: asset not found at $SECOND_ASSET_PATH"
+#            exit 1
+#          fi
+#
+#          curl --fail -sS -X POST \
+#            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+#            -H "Content-Type: application/pdf" \
+#            --data-binary @"${SECOND_ASSET_PATH}" \
+#            "${upload_url}?name=$(basename "$SECOND_ASSET_PATH")"
 
           # Upload third PDF
           THIRD_ASSET_PATH="${GITHUB_WORKSPACE}/pack-showbook_letter_booklet.pdf"

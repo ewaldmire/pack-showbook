@@ -1,6 +1,6 @@
 # Scout Pack Showbook: Songs, Skits, and Fun!
 
-This is a Cub Scout Song & Skit Book I'm creating.
+A Cub Scout Song & Skit Book I'm compiling for part of my Wood Badge ticket. 
 
 ## Dependencies
 I'm using Red Hat Enterprise Linux 9, and these packages are needed to compile:
