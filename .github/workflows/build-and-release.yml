@@ -25,7 +25,20 @@ jobs:
             pdflatex songbook_ebook.tex && \
             pdflatex songbook_ebook.tex && \
             pdflatex songbook_halfpage.tex && \
-            pdflatex songbook_halfpage.tex
+            pdflatex songbook_halfpage.tex && \
+            dnf -y install texlive-pdfpages texlive-pdflscape && \
+            mkdir -p ~/texmf/tex/latex/everyshi && \
+            curl -L -o ~/texmf/tex/latex/everyshi/everyshi.sty https://mirrors.ctan.org/macros/latex/contrib/everyshi/everyshi.sty && \
+            texhash ~/texmf && \
+            cd ~/ && \
+            dnf -y install wget && \
+            wget https://github.com/pdfjam/pdfjam/releases/download/v4.2/pdfjam-4.2.tar.gz && \
+            tar zxvf pdfjam-4.2.tar.gz && \
+            mkdir -p ~/code/ && \
+            cd ~/code/ && \
+            git clone https://github.com/pdfjam/pdfjam-extras && \
+            export PATH=$HOME/pdfjam-4.2/bin:$PATH && \
+            ~/code/pdfjam-extras/bin/pdfbook --short-edge /workspace/songbook_halfpage.pdf  --outfile /workspace/songbook_half_booklet.pdf
           "
 
       - name: Install jq (parse JSON)
@@ -98,6 +111,19 @@ jobs:
           SECOND_ASSET_PATH="${GITHUB_WORKSPACE}/songbook_halfpage.pdf"
           if [ ! -f "$SECOND_ASSET_PATH" ]; then
             echo "ERROR: asset not found at $SECOND_ASSET_PATH"
+            exit 1
+          fi
+
+          curl --fail -sS -X POST \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Content-Type: application/pdf" \
+            --data-binary @"${SECOND_ASSET_PATH}" \
+            "${upload_url}?name=$(basename "$SECOND_ASSET_PATH")"
+
+          # Upload third PDF
+          THIRD_ASSET_PATH="${GITHUB_WORKSPACE}/songbook_half_booklet.pdf"
+          if [ ! -f "$THIRD_ASSET_PATH" ]; then
+            echo "ERROR: asset not found at $THIRD_ASSET_PATH"
             exit 1
           fi
 
