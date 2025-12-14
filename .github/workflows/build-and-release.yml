@@ -31,7 +31,7 @@ jobs:
             curl -L -o ~/texmf/tex/latex/everyshi/everyshi.sty https://mirrors.ctan.org/macros/latex/contrib/everyshi/everyshi.sty && \
             texhash ~/texmf && \
             cd ~/ && \
-            dnf -y install wget && \
+            dnf -y install git wget && \
             wget https://github.com/pdfjam/pdfjam/releases/download/v4.2/pdfjam-4.2.tar.gz && \
             tar zxvf pdfjam-4.2.tar.gz && \
             mkdir -p ~/code/ && \
