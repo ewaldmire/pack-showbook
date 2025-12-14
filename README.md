@@ -1,4 +1,4 @@
-# Scout Pack Showbook: Songs, Skits, and Fun!
+# Pack Showbook: Songs, Skits, and Fun!
 
 A Cub Scout Song & Skit Book I'm compiling for part of my Wood Badge ticket. 
 
