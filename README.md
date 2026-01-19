@@ -50,3 +50,10 @@ pdfbook --short-edge ~/path/to/pack-showbook_letter_half.pdf  --outfile ~/path/t
 export PATH=$HOME/pdfjam-4.2/bin:$PATH
 pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_half.tex && pdflatex pack-showbook_letter_half.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/pack-showbook/pack-showbook_letter_half.pdf  --outfile ~/code/pack-showbook/pack-showbook_letter_booklet.pdf
 ```
+
+## Other Resources:
+- https://www.boyscouttrail.com
+- https://www.moorecountyboyscouts.org
+- https://www.scoutermom.com
+- https://www.scoutsongs.com
+- https://www.thesingingscoutmaster.com
