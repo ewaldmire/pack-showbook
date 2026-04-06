@@ -57,3 +57,4 @@ pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_full.tex
 - https://www.scoutermom.com
 - https://www.scoutsongs.com
 - https://www.thesingingscoutmaster.com
+- http://usscouts.org/bbugle.asp (Baloo's Bugle)
