@@ -52,6 +52,7 @@ pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_full.tex
 ```
 
 ## Other Resources:
+- https://www.scouting.org/programs/cub-scouts/leader-resources/presentations-and-ceremonies/ #National added skits recently!!
 - https://www.boyscouttrail.com
 - https://www.moorecountyboyscouts.org
 - https://www.scoutermom.com
