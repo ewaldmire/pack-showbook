@@ -24,6 +24,8 @@ jobs:
             cd /workspace && \
             pdflatex pack-showbook_letter_full.tex && \
             pdflatex pack-showbook_letter_full.tex && \
+            pdflatex pack-showbook_letter_full.tex && \
+            pdflatex pack-showbook_letter_half.tex && \
             pdflatex pack-showbook_letter_half.tex && \
             pdflatex pack-showbook_letter_half.tex && \
             dnf -y install texlive-pdfpages texlive-pdflscape && \

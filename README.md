@@ -5,7 +5,7 @@ A Cub Scout Song & Skit Book I'm compiling for part of my Wood Badge ticket.
 ## Dependencies
 I'm using Red Hat Enterprise Linux 9, and these packages are needed to compile:
 ```
-sudo dnf install texlive-latex texlive-collection-fontsrecommended texlive-fancyhdr texlive-epstopdf-pkg -y
+sudo dnf install texlive-latex texlive-collection-fontsrecommended texlive-fancyhdr texlive-epstopdf-pkg texlive-latexmk -y
 ```
 
 
@@ -13,9 +13,11 @@ sudo dnf install texlive-latex texlive-collection-fontsrecommended texlive-fancy
 
 1. To Generate the entire Showbook as a pdf:
 ```
-pdflatex pack-showbook_letter_full.tex #1st time to generate initial book without ToC.
-pdflatex pack-showbook_letter_full.tex #2nd time to generate ToC.
+latexmk -pdf pack-showbook_letter_full.tex
 ```
+`latexmk` reruns `pdflatex` as many times as needed (not just twice) until the ToC/page numbers stop changing between runs. This matters because whenever the Table of Contents itself grows or shrinks past a page boundary, that changes the length of the ToC, which shifts every page number after it — and `pdflatex` doesn't warn about that kind of drift the way it does for undefined references, so a fixed "compile twice" habit will quietly go stale (this bit us once the ToC hit 2 pages).
+
+If you don't have `latexmk`, the manual equivalent is to keep running `pdflatex pack-showbook_letter_full.tex` until the `.toc` file stops changing (`diff` it between runs) — 2 passes is not always enough.
 
 2. To Generate a single page sheet (useful for leading the group in "repeat after me" without books)
 ```
@@ -48,7 +50,7 @@ pdfbook --short-edge ~/path/to/pack-showbook_letter_half.pdf  --outfile ~/path/t
 ## Lazy copy-paste for me to build all the things:
 ```
 export PATH=$HOME/pdfjam-4.2/bin:$PATH
-pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_full.tex && pdflatex pack-showbook_letter_half.tex && pdflatex pack-showbook_letter_half.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/pack-showbook/pack-showbook_letter_half.pdf  --outfile ~/code/pack-showbook/pack-showbook_letter_booklet.pdf
+latexmk -pdf pack-showbook_letter_full.tex && latexmk -pdf pack-showbook_letter_half.tex && ~/code/pdfjam-extras/bin/pdfbook --short-edge ~/code/pack-showbook/pack-showbook_letter_half.pdf  --outfile ~/code/pack-showbook/pack-showbook_letter_booklet.pdf
 ```
 
 ## Other Resources:
